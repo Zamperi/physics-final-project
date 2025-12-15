@@ -167,7 +167,7 @@ summary = pd.DataFrame(
 
 summary["Arvo"] = summary["Arvo"].astype(float).round(2)
 
-st.dataframe(summary, use_container_width=True)
+st.dataframe(summary, width="stretch")
 
 
 # Suodatettu kiihtyvyys ja piikit
