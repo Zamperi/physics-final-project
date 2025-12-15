@@ -10,8 +10,11 @@ from streamlit.components.v1 import html
 from scipy.signal import butter, filtfilt, find_peaks, welch
 
 # Asetukset
-ACC_PATH = "data/Accelerometer.csv"
-LOC_PATH = "data/Location.csv"
+BRANCH = "main"
+REPO_RAW = f"https://raw.githubusercontent.com/Zamperi/physics-final-project/{BRANCH}"
+
+ACC_URL = f"{REPO_RAW}/data/Accelerometer.csv"
+LOC_URL = f"{REPO_RAW}/data/Location.csv"
 
 t_cut = 20.0  # sekuntia alusta pois
 
@@ -31,8 +34,8 @@ def haversine(lat1, lon1, lat2, lon2):
 
 @st.cache_data
 def load_and_process():
-    acc = pd.read_csv(ACC_PATH, comment="#", sep=",")
-    loc = pd.read_csv(LOC_PATH, comment="#", sep=",")
+    acc = pd.read_csv(ACC_URL, comment="#", sep=",")
+    loc = pd.read_csv(LOC_URL, comment="#", sep=",")
 
     acc_time_col = "Time (s)"
     loc_time_col = "Time (s)"
